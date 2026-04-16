@@ -24,7 +24,6 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            cursor: none;
         }
 
         #pw-ui {
@@ -397,7 +396,7 @@
                     vz[i] += (targetZ - pz[i]) * sp;
 
                     // Repulsion (projected to approximate screenspace influence)
-                    if (appState >= 1 && mouseX > 0) {
+                    if (mouseX > -9000) {
                         const scale = FOV / (FOV + pz[i] + CAMERA_Z);
                         const sx = px[i] * scale + CX;
                         const sy = py[i] * scale + CY;
@@ -464,7 +463,7 @@
                     ctx.fill();
                 }
 
-                if (appState >= 1 && mouseX > 0) {
+                if (mouseX > -9000) {
                     const r = REPEL_RADIUS;
                     const grd = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, r);
                     grd.addColorStop(0, 'rgba(255,255,255,0.05)');
